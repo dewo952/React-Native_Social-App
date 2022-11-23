@@ -4,18 +4,26 @@ import { containerFull } from "../../components/CommonCss/pagecss";
 import { formHead } from "../../components/CommonCss/formcss";
 import BottomNavBar from "../../components/BottomNavBar";
 import TopNavBar from "../../components/TopNavBar";
+import FollowersRandomPost from "../../components/FollowersRandomPost";
 
 const Mainpage = ({ navigation }) => {
   return (
-    <View style={containerFull}>
+    <View style={styles.container}>
       <StatusBar />
-      <TopNavBar/>
-      <BottomNavBar/>
-      <Text style={formHead}>Mainpage</Text>
+      <TopNavBar />
+      <BottomNavBar /> 
+      <FollowersRandomPost />
     </View>
   );
 };
 
 export default Mainpage;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#000000",
+    width: "100%",
+    height: "100%",
+    paddingVertical: 50,
+  },
+});

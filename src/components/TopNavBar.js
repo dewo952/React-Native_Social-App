@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
-import log from "../../assets/log.png";
+import log2 from "../../assets/log2.png";
 import { logo2, icon1 } from "../components/CommonCss/pagecss";
 import { Ionicons } from "@expo/vector-icons";
 
 const TopNavBar = () => {
   return (
     <View style={styles.container}>
-      <Image source={log} style={logo2} />
+      <Image source={log2} style={logo2} />
       <Ionicons name="chatbubble-outline" size={24} color="white" style={icon1} />
     </View>
   );
