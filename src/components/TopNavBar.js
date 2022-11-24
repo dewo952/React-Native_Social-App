@@ -4,11 +4,11 @@ import log2 from "../../assets/log2.png";
 import { logo2, icon1 } from "../components/CommonCss/pagecss";
 import { Ionicons } from "@expo/vector-icons";
 
-const TopNavBar = () => {
+const TopNavBar = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Image source={log2} style={logo2} />
-      <Ionicons name="chatbubble-outline" size={24} color="white" style={icon1} />
+      <Ionicons name="chatbubbles" size={24} color="white" style={icon1} onPress={() => navigation.navigate('Chats')} />
     </View>
   );
 };

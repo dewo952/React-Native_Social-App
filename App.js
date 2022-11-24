@@ -17,6 +17,7 @@ import ForgotPassword_AccountRecovered from "./src/screens/LoginScreen/ForgotPas
 import ForgotPassword_EnterCode from "./src/screens/LoginScreen/ForgotPassword/ForgotPassword_EnterCode";
 import ForgotPassword_ChoosePassword from "./src/screens/LoginScreen/ForgotPassword/ForgotPassword_ChoosePassword";
 import Mainpage from "./src/screens/Mainpage/Mainpage";
+import All_Chats from "./src/screens/LoginScreen/ChatScreen/All_Chats";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,7 @@ export default function App() {
         }}
       >
         {/* Login Navigation */}
-        {/* <Stack.Screen name="Login" component={Login_Screen} />
+        <Stack.Screen name="Login" component={Login_Screen} />
         <Stack.Screen name="Signup_EnterEmail" component={Signup_EnterEmail} />
         <Stack.Screen
           name="Signup_Verification"
@@ -50,7 +51,7 @@ export default function App() {
         />
 
         {/* ForgotPassword Navigation */}
-{/* 
+
         <Stack.Screen
           name="ForgotPassword_EnterEmail"
           component={ForgotPassword_EnterEmail}
@@ -66,9 +67,14 @@ export default function App() {
         <Stack.Screen
           name="ForgotPassword_AccountRecovered"
           component={ForgotPassword_AccountRecovered}
-        /> */}
+        />
 
         <Stack.Screen name="Mainpage" component={Mainpage} />
+        <Stack.Screen
+          name="Chats"
+          component={All_Chats}
+          options={{ animation: "slide_from_bottom" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
