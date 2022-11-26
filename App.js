@@ -4,20 +4,24 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 //LoginScreen
-import Login_Screen from "./src/screens/LoginScreen/Login/Login_Screen";
-import Signup_Verification from "./src/screens/LoginScreen/SignUp/SignUp_Verification";
-import SignUp_ChoosePassword from "./src/screens/LoginScreen/SignUp/SignUp_ChoosePassword";
-import Signup_EnterUsername from "./src/screens/LoginScreen/SignUp/SignUp_EnterUsername";
-import SignUp_AccountCreated from "./src/screens/LoginScreen/SignUp/SignUp_AccountCreated";
-import Signup_EnterEmail from "./src/screens/LoginScreen/SignUp/SignUp_EnterEmail";
+import Login_Screen from "./src/screens/LoginSignUp/Login/Login_Screen";
+import Signup_Verification from "./src/screens/LoginSignUp/SignUp/SignUp_Verification";
+import SignUp_ChoosePassword from "./src/screens/LoginSignUp/SignUp/SignUp_ChoosePassword";
+import Signup_EnterUsername from "./src/screens/LoginSignUp/SignUp/SignUp_EnterUsername";
+import SignUp_AccountCreated from "./src/screens/LoginSignUp/SignUp/SignUp_AccountCreated";
+import Signup_EnterEmail from "./src/screens/LoginSignUp/SignUp/SignUp_EnterEmail";
 
 //ForgotPassword
-import ForgotPassword_EnterEmail from "./src/screens/LoginScreen/ForgotPassword/ForgotPassword_EnterEmail";
-import ForgotPassword_AccountRecovered from "./src/screens/LoginScreen/ForgotPassword/ForgotPassword_AccountRecovered";
-import ForgotPassword_EnterCode from "./src/screens/LoginScreen/ForgotPassword/ForgotPassword_EnterCode";
-import ForgotPassword_ChoosePassword from "./src/screens/LoginScreen/ForgotPassword/ForgotPassword_ChoosePassword";
+import ForgotPassword_EnterEmail from "./src/screens/LoginSignUp/ForgotPassword/ForgotPassword_EnterEmail";
+import ForgotPassword_AccountRecovered from "./src/screens/LoginSignUp/ForgotPassword/ForgotPassword_AccountRecovered";
+import ForgotPassword_EnterCode from "./src/screens/LoginSignUp/ForgotPassword/ForgotPassword_EnterCode";
+import ForgotPassword_ChoosePassword from "./src/screens/LoginSignUp/ForgotPassword/ForgotPassword_ChoosePassword";
 import Mainpage from "./src/screens/Mainpage/Mainpage";
-import All_Chats from "./src/screens/LoginScreen/ChatScreen/All_Chats";
+import All_Chats from "./src/screens/ChatScreen/All_Chats";
+import SearchUser from "./src/screens/Mainpage/SearchUser";
+import Notification from "./src/screens/Mainpage/Notification";
+import UserProfile from "./src/screens/Profile/UserProfile";
+import Setting from "./src/Settings/Setting";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +35,7 @@ export default function App() {
         }}
       >
         {/* Login Navigation */}
-        <Stack.Screen name="Login" component={Login_Screen} />
+        {/* <Stack.Screen name="Login" component={Login_Screen} />
         <Stack.Screen name="Signup_EnterEmail" component={Signup_EnterEmail} />
         <Stack.Screen
           name="Signup_Verification"
@@ -48,10 +52,10 @@ export default function App() {
         <Stack.Screen
           name="Signup_AccountCreated"
           component={SignUp_AccountCreated}
-        />
+        /> */}
 
         {/* ForgotPassword Navigation */}
-
+        {/* 
         <Stack.Screen
           name="ForgotPassword_EnterEmail"
           component={ForgotPassword_EnterEmail}
@@ -67,13 +71,34 @@ export default function App() {
         <Stack.Screen
           name="ForgotPassword_AccountRecovered"
           component={ForgotPassword_AccountRecovered}
-        />
+        /> */}
 
+        {/* Main App Page */}
         <Stack.Screen name="Mainpage" component={Mainpage} />
         <Stack.Screen
           name="Chats"
           component={All_Chats}
           options={{ animation: "slide_from_bottom" }}
+        />
+        <Stack.Screen
+          name="SearchUser"
+          component={SearchUser}
+          options={{ animation: "simple_push" }}
+        />
+        <Stack.Screen
+          name="Notification"
+          component={Notification}
+          options={{ animation: "simple_push" }}
+        />
+        <Stack.Screen
+          name="UserProfile"
+          component={UserProfile}
+          options={{ animation: "simple_push" }}
+        />
+        <Stack.Screen
+          name="Setting"
+          component={Setting}
+          options={{ animation: "slide_from_right" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

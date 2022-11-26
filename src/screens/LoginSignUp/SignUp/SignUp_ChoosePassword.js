@@ -9,21 +9,19 @@ import {
 } from "react-native";
 import {
   containerFull,
-  forgotPassword,
   goback,
   logo1,
-} from "../../../components/CommonCss/pagecss";
+} from "../../../styles/CommonCss/pagecss";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import log from "../../../../assets/log.png";
 import {
   formbtn,
   formHead2,
-  formHead3,
   formInput,
-  formTextLinkRight,
-} from "../../../components/CommonCss/formcss";
+} from "../../../styles/CommonCss/formcss";
 
-const ForgotPassword_ChoosePassword = ({ navigation }) => {
+const SignUp_ChoosePassword = ({ navigation }) => {
   return (
     <View style={containerFull}>
       <TouchableOpacity
@@ -32,18 +30,8 @@ const ForgotPassword_ChoosePassword = ({ navigation }) => {
       >
         <MaterialCommunityIcons name="chevron-left" size={24} color="gray" />
       </TouchableOpacity>
-      <Text
-        style={{
-          color: "white",
-          fontSize: 16,
-          fontWeight: "bold",
-          bottom: 157,
-        }}
-      >
-        New Password
-      </Text>
       <Image source={log} style={logo1} />
-      <Text style={formHead3}>Enter New Password</Text>
+      <Text style={formHead2}>Choose A strong password</Text>
       <TextInput
         placeholder="8 symbls at least"
         style={formInput}
@@ -56,7 +44,7 @@ const ForgotPassword_ChoosePassword = ({ navigation }) => {
       />
       <Text
         style={formbtn}
-        onPress={() => navigation.navigate("ForgotPassword_AccountRecovered")}
+        onPress={() => navigation.navigate("Signup_AccountCreated")}
       >
         Submit
       </Text>
@@ -64,6 +52,6 @@ const ForgotPassword_ChoosePassword = ({ navigation }) => {
   );
 };
 
-export default ForgotPassword_ChoosePassword;
+export default SignUp_ChoosePassword;
 
 const styles = StyleSheet.create({});

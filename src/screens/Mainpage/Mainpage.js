@@ -9,9 +9,9 @@ const Mainpage = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <StatusBar />
-      <TopNavBar navigation={navigation} />
-      <BottomNavBar />
+      <TopNavBar navigation={navigation} page={'Mainpage'} />
       <FollowersRandomPost />
+      <BottomNavBar navigation={navigation} page={'Mainpage'}/>
     </View>
   );
 };

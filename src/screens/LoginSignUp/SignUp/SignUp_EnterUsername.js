@@ -11,7 +11,7 @@ import {
   containerFull,
   goback,
   logo1,
-} from "../../../components/CommonCss/pagecss";
+} from "../../../styles/CommonCss/pagecss";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import log from "../../../../assets/log.png";
@@ -19,9 +19,9 @@ import {
   formbtn,
   formHead2,
   formInput,
-} from "../../../components/CommonCss/formcss";
+} from "../../../styles/CommonCss/formcss";
 
-const Signup_EnterEmail = ({ navigation }) => {
+const Signup_EnterUsername = ({ navigation }) => {
   return (
     <View style={containerFull}>
       <TouchableOpacity
@@ -31,17 +31,17 @@ const Signup_EnterEmail = ({ navigation }) => {
         <MaterialCommunityIcons name="chevron-left" size={24} color="gray" />
       </TouchableOpacity>
       <Image source={log} style={logo1} />
-      <Text style={formHead2}>Create a new account</Text>
-      <TextInput placeholder="example@gmail.com" style={formInput} />
+      <Text style={formHead2}>Choose A Username</Text>
+      <TextInput placeholder="Enter a username" style={formInput} />
       <Text
         style={formbtn}
-        onPress={() => navigation.navigate("Signup_Verification")}
+        onPress={() => navigation.navigate("Signup_ChoosePassword")}
       >
         Next
       </Text>
     </View>
   );
 };
-export default Signup_EnterEmail;
+export default Signup_EnterUsername;
 
 const styles = StyleSheet.create({});

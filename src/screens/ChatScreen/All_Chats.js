@@ -1,8 +1,9 @@
 import { StyleSheet, Text, ScrollView, View, TextInput } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { formHead2 } from "../../../components/CommonCss/formcss";
+import { formHead2 } from "../../styles/CommonCss/formcss";
 import React, { useState } from "react";
-import ChatCard from "../../../components/Cards/Chat";
+import ChatCard from "../../components/Cards/Chat";
+import {searchbar} from '../../styles/CommonCss/pagecss';
 
 const All_Chats = ({ navigation }) => {
   let chats = [
@@ -96,7 +97,7 @@ const All_Chats = ({ navigation }) => {
 
   // console.log(keyword)
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <MaterialCommunityIcons
         name="chevron-left"
         size={24}
@@ -108,7 +109,7 @@ const All_Chats = ({ navigation }) => {
       <View style={styles.c1}>
         <Text style={formHead2}>Your Chats</Text>
         <TextInput
-          style={styles.searchbar}
+          style={searchbar}
           placeholder="Search"
           onChangeText={(text) => setKeyword(text)}
         />
@@ -161,15 +162,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: "gray",
     borderWidth: 1,
-  },
-  searchbar: {
-    width: "90%",
-    backgroundColor: "white",
-    borderRadius: 30,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginTop: 10,
-    fontSize: 18,
   },
   c2: {
     width: "100%",

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 
 import React, { useState } from "react";
 import { FontAwesome } from '@expo/vector-icons';
-import { icon1 } from "../CommonCss/pagecss";
+import { icon1 } from "../../styles/CommonCss/pagecss";
 
 import { AntDesign } from "@expo/vector-icons";
 

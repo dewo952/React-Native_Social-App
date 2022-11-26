@@ -11,17 +11,17 @@ import {
   containerFull,
   goback,
   logo1,
-} from "../../../components/CommonCss/pagecss";
+} from "../../../styles/CommonCss/pagecss";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import log from "../../../../assets/log.png";
 import {
   formbtn,
-  formHead2,
+  formHead3,
   formInput,
-} from "../../../components/CommonCss/formcss";
+} from "../../../styles/CommonCss/formcss";
 
-const SignUp_ChoosePassword = ({ navigation }) => {
+const Signup_Verification = ({ navigation }) => {
   return (
     <View style={containerFull}>
       <TouchableOpacity
@@ -31,27 +31,19 @@ const SignUp_ChoosePassword = ({ navigation }) => {
         <MaterialCommunityIcons name="chevron-left" size={24} color="gray" />
       </TouchableOpacity>
       <Image source={log} style={logo1} />
-      <Text style={formHead2}>Choose A strong password</Text>
-      <TextInput
-        placeholder="8 symbls at least"
-        style={formInput}
-        secureTextEntry
-      />
-      <TextInput
-        placeholder="********"
-        style={formInput}
-        secureTextEntry
-      />
+      <Text style={formHead3}>
+        Enter Verification Code
+      </Text>
+      <TextInput placeholder="123456" style={formInput} />
       <Text
         style={formbtn}
-        onPress={() => navigation.navigate("Signup_AccountCreated")}
+        onPress={() => navigation.navigate("Signup_EnterUsername")}
       >
-        Submit
+        Verify
       </Text>
     </View>
   );
 };
-
-export default SignUp_ChoosePassword;
+export default Signup_Verification;
 
 const styles = StyleSheet.create({});

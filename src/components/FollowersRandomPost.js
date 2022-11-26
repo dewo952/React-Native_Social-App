@@ -92,7 +92,7 @@ const FollowersRandomPost = () => {
     },
   ];
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {data.map((item) => {
         return (
           <PostBigCard

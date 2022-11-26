@@ -9,19 +9,20 @@ import {
 } from "react-native";
 import {
   containerFull,
+  forgotPassword,
   goback,
   logo1,
-} from "../../../components/CommonCss/pagecss";
+} from "../../../styles/CommonCss/pagecss";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
 import log from "../../../../assets/log.png";
 import {
   formbtn,
-  formHead3,
+  formHead2,
   formInput,
-} from "../../../components/CommonCss/formcss";
+  formTextLinkRight,
+} from "../../../styles/CommonCss/formcss";
 
-const Signup_Verification = ({ navigation }) => {
+const ForgotPassword_EnterEmail = ({ navigation }) => {
   return (
     <View style={containerFull}>
       <TouchableOpacity
@@ -30,20 +31,30 @@ const Signup_Verification = ({ navigation }) => {
       >
         <MaterialCommunityIcons name="chevron-left" size={24} color="gray" />
       </TouchableOpacity>
+        <Text
+          style={forgotPassword}
+        >
+          Forgot Password
+        </Text>
       <Image source={log} style={logo1} />
-      <Text style={formHead3}>
-        Enter Verification Code
+      <Text style={formHead2}>Enter Email Address</Text>
+      <TextInput placeholder="example@gmail.com" style={formInput} />
+      <Text
+        style={formTextLinkRight}
+        onPress={() => navigation.navigate("Login")}
+      >
+        Back to sign in
       </Text>
-      <TextInput placeholder="123456" style={formInput} />
       <Text
         style={formbtn}
-        onPress={() => navigation.navigate("Signup_EnterUsername")}
+        onPress={() => navigation.navigate("ForgotPassword_EnterCode")}
       >
-        Verify
+        Send
       </Text>
     </View>
   );
 };
-export default Signup_Verification;
+
+export default ForgotPassword_EnterEmail;
 
 const styles = StyleSheet.create({});

@@ -5,14 +5,14 @@ import {
   containerFull,
   hr80,
   logo,
-} from "../../../components/CommonCss/pagecss";
+} from "../../../styles/CommonCss/pagecss";
 import {
   formbtn,
   formHead,
   formInput,
   formTextLinkCenter,
   formTextLinkRight,
-} from "../../../components/CommonCss/formcss";
+} from "../../../styles/CommonCss/formcss";
 
 const Login_Screen = ({ navigation }) => {
   return (

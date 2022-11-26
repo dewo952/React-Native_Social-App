@@ -44,4 +44,14 @@ module.exports = {
     color: "white",
     fontSize: 30,
   },
+  searchbar: {
+    width: "90%",
+    backgroundColor: "white",
+    borderRadius: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginTop: 10,
+    fontSize: 18,
+    alignSelf: 'center'
+  },
 };

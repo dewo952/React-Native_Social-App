@@ -1,28 +1,89 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import { icon1 } from "../components/CommonCss/pagecss";
+import { icon1 } from "../styles/CommonCss/pagecss";
 
-const BottomNavBar = () => {
+const Bottomnavbar = ({ navigation, page }) => {
+  // console.log(page)
   return (
     <View style={styles.container}>
-      <MaterialCommunityIcons
-        name="home-variant"
-        size={24}
-        color="white"
-        style={icon1}
-      />
-      <Fontisto name="search" size={24} color="black" style={icon1} />
-      <Ionicons name="ios-heart" size={24} color="black" style={icon1} />
-      <FontAwesome name="user-circle" size={24} color="black" style={icon1} />
+      {page === "Mainpage" ? (
+        <MaterialCommunityIcons
+          name="home-variant"
+          size={24}
+          color="black"
+          style={styles.activeicon1}
+          onPress={() => navigation.navigate("Mainpage")}
+        />
+      ) : (
+        <MaterialCommunityIcons
+          name="home-variant"
+          size={24}
+          color="black"
+          style={icon1}
+          onPress={() => navigation.navigate("Mainpage")}
+        />
+      )}
+
+      {page === "SearchUser" ? (
+        <Fontisto
+          name="search"
+          size={24}
+          color="black"
+          style={styles.activeicon1}
+          onPress={() => navigation.navigate("SearchUser")}
+        />
+      ) : (
+        <Fontisto
+          name="search"
+          size={24}
+          color="black"
+          style={icon1}
+          onPress={() => navigation.navigate("SearchUser")}
+        />
+      )}
+      {page === "Notification" ? (
+        <Ionicons
+          name="ios-heart"
+          size={24}
+          color="black"
+          style={styles.activeicon1}
+          onPress={() => navigation.navigate("Notification")}
+        />
+      ) : (
+        <Ionicons
+          name="ios-heart"
+          size={24}
+          color="black"
+          style={icon1}
+          onPress={() => navigation.navigate("Notification")}
+        />
+      )}
+      {page === "UserProfile" ? (
+        <FontAwesome
+          name="user"
+          size={24}
+          color="black"
+          style={styles.activeicon1}
+          onPress={() => navigation.navigate("UserProfile")}
+        />
+      ) : (
+        <FontAwesome
+          name="user"
+          size={24}
+          color="black"
+          style={icon1}
+          onPress={() => navigation.navigate("UserProfile")}
+        />
+      )}
     </View>
   );
 };
 
-export default BottomNavBar;
+export default Bottomnavbar;
 
 const styles = StyleSheet.create({
   container: {
@@ -36,7 +97,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: "100%",
     zIndex: 100,
-    borderTopWidth: 1,
     paddingVertical: 10,
+    alignItems: "center",
+  },
+  activeicon1: {
+    backgroundColor: "white",
+    borderRadius: 50,
+    fontSize: 30,
+    padding: 10,
   },
 });
