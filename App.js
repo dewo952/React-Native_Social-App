@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -35,7 +34,7 @@ export default function App() {
         }}
       >
         {/* Login Navigation */}
-        {/* <Stack.Screen name="Login" component={Login_Screen} />
+        <Stack.Screen name="Login" component={Login_Screen} />
         <Stack.Screen name="Signup_EnterEmail" component={Signup_EnterEmail} />
         <Stack.Screen
           name="Signup_Verification"
@@ -52,10 +51,10 @@ export default function App() {
         <Stack.Screen
           name="Signup_AccountCreated"
           component={SignUp_AccountCreated}
-        /> */}
+        />
 
         {/* ForgotPassword Navigation */}
-        {/* 
+
         <Stack.Screen
           name="ForgotPassword_EnterEmail"
           component={ForgotPassword_EnterEmail}
@@ -71,7 +70,7 @@ export default function App() {
         <Stack.Screen
           name="ForgotPassword_AccountRecovered"
           component={ForgotPassword_AccountRecovered}
-        /> */}
+        />
 
         {/* Main App Page */}
         <Stack.Screen name="Mainpage" component={Mainpage} />

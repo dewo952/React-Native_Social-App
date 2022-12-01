@@ -31,9 +31,7 @@ const Signup_Verification = ({ navigation }) => {
         <MaterialCommunityIcons name="chevron-left" size={24} color="gray" />
       </TouchableOpacity>
       <Image source={log} style={logo1} />
-      <Text style={formHead3}>
-        Enter Verification Code
-      </Text>
+      <Text style={formHead3}>Enter Verification Code</Text>
       <TextInput placeholder="123456" style={formInput} />
       <Text
         style={formbtn}

@@ -165,9 +165,9 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   postpic: {
-    width: "33%",
-    height: 120,
-    borderWidth: 1,
+    width: 163.5,
+    height: 163.5,
+    borderWidth: 2,
     borderColor: "black",
   },
   c13: {

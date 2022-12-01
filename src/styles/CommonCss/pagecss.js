@@ -43,6 +43,8 @@ module.exports = {
   icon1: {
     color: "white",
     fontSize: 30,
+    
+    
   },
   searchbar: {
     width: "90%",

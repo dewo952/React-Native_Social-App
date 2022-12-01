@@ -13,7 +13,7 @@ const TopNavBar = ({ navigation, page }) => {
           name="chatbubbles"
           size={24}
           color="white"
-          style={icon1}
+          style={styles.icons1}
           onPress={() => navigation.navigate("Chats")}
         />
       )}
@@ -22,7 +22,7 @@ const TopNavBar = ({ navigation, page }) => {
           name="settings"
           size={24}
           color="white"
-          style={icon1}
+          style={styles.icons1}
           onPress={() => navigation.navigate("Setting")}
         />
       )}
@@ -43,5 +43,10 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 100,
     backgroundColor: "#111111",
+  },
+  icons1: {
+    color: "white",
+    fontSize: 30,
+    paddingLeft: 10,
   },
 });
