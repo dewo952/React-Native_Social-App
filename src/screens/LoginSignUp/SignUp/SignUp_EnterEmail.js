@@ -65,6 +65,7 @@ const Signup_EnterEmail = ({ navigation }) => {
       >
         <MaterialCommunityIcons name="chevron-left" size={24} color="white" />
       </TouchableOpacity>
+
       <Image source={log} style={logo1} />
       <Text style={formHead2}>Create a new account</Text>
       <TextInput placeholder="Enter Your Email" style={formInput}

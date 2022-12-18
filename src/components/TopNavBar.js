@@ -44,4 +44,9 @@ const styles = StyleSheet.create({
     zIndex: 100,
     backgroundColor: "#111111",
   },
+  icons1: {
+    color: "white",
+    fontSize: 30,
+    paddingLeft: 10,
+  },
 });
