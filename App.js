@@ -22,6 +22,7 @@ import SearchUser from "./src/screens/Mainpage/SearchUser";
 import Notification from "./src/screens/Mainpage/Notification";
 import UserProfile from "./src/screens/Profile/UserProfile";
 import Setting from "./src/Settings/Setting";
+import ChangePassword from "./src/Settings/ChangePassword";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,28 +35,32 @@ export default function App() {
           animation: "slide_from_right",
         }}
       >
+         {/* Main App Page */}
+         <Stack.Screen name="Mainpage" component={Mainpage} />
         {/* Login Navigation */}
-        {/* <Stack.Screen name="Login" component={Login_Screen} />
+        <Stack.Screen name="Login" component={Login_Screen} />
+
+        {/* SignUp Navigation */}
         <Stack.Screen name="Signup_EnterEmail" component={Signup_EnterEmail} />
         <Stack.Screen
           name="Signup_Verification"
           component={Signup_Verification}
         />
         <Stack.Screen
-          name="Signup_ChoosePassword"
-          component={SignUp_ChoosePassword}
-        />
-        <Stack.Screen
           name="Signup_EnterUsername"
           component={Signup_EnterUsername}
         />
         <Stack.Screen
+          name="Signup_ChoosePassword"
+          component={SignUp_ChoosePassword}
+        />
+        <Stack.Screen
           name="Signup_AccountCreated"
           component={SignUp_AccountCreated}
-        /> */}
+        />
 
         {/* ForgotPassword Navigation */}
-        {/* 
+        
         <Stack.Screen
           name="ForgotPassword_EnterEmail"
           component={ForgotPassword_EnterEmail}
@@ -71,10 +76,10 @@ export default function App() {
         <Stack.Screen
           name="ForgotPassword_AccountRecovered"
           component={ForgotPassword_AccountRecovered}
-        /> */}
+        />
 
-        {/* Main App Page */}
-        <Stack.Screen name="Mainpage" component={Mainpage} />
+       
+
         <Stack.Screen
           name="Chats"
           component={All_Chats}
@@ -95,10 +100,16 @@ export default function App() {
           component={UserProfile}
           options={{ animation: "simple_push" }}
         />
+
+
         <Stack.Screen
           name="Setting"
           component={Setting}
           options={{ animation: "slide_from_right" }}
+        />
+
+        <Stack.Screen name="Change_Password"
+        component={ChangePassword}
         />
       </Stack.Navigator>
     </NavigationContainer>

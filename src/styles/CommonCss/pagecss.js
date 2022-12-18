@@ -30,8 +30,15 @@ module.exports = {
   goback: {
     flexDirection: "row",
     position: "absolute",
+    top: 15,
+    left: 10,
+    alignItems: "center",
+  },
+  goback1: {
+    flexDirection: "row",
+    position: "absolute",
     top: 50,
-    left: 20,
+    left: 10,
     alignItems: "center",
   },
   forgotPassword: {
@@ -43,6 +50,14 @@ module.exports = {
   icon1: {
     color: "white",
     fontSize: 30,
+    
+  },
+  icons1: {
+    color: "white",
+    fontSize: 30,
+    
+    paddingHorizontal: 10
+    
   },
   searchbar: {
     width: "90%",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   StyleSheet,
@@ -23,7 +23,20 @@ import {
   formTextLinkRight,
 } from "../../../styles/CommonCss/formcss";
 
-const ForgotPassword_EnterCode = ({ navigation }) => {
+const ForgotPassword_EnterCode = ({ navigation, route }) => {
+  const { useremail, userVerificationCode } = route.params;
+  const [verificationCode, setVerificationCode] = useState("");
+
+  const handleVerificationCode = () => {
+    if (verificationCode != userVerificationCode) {
+      alert("Invalid Verification Code ");
+    } else {
+      alert("Verification Code Matched");
+      navigation.navigate("ForgotPassword_ChoosePassword", {
+        email: useremail,
+      });
+    }
+  };
   return (
     <View style={containerFull}>
       <TouchableOpacity
@@ -32,17 +45,14 @@ const ForgotPassword_EnterCode = ({ navigation }) => {
       >
         <MaterialCommunityIcons name="chevron-left" size={24} color="gray" />
       </TouchableOpacity>
-        <Text
-          style={forgotPassword}
-        >
-          Verification
-        </Text>
+      <Text style={forgotPassword}>Verification</Text>
       <Image source={log} style={logo1} />
       <Text style={formHead3}>Enter Verification Code</Text>
-      <TextInput placeholder="123456" style={formInput} />
+      <TextInput placeholder="123456" style={formInput}
+      onChangeText={(text)=> setVerificationCode(text)} />
       <Text
         style={formbtn}
-        onPress={() => navigation.navigate("ForgotPassword_ChoosePassword")}
+        onPress={() => handleVerificationCode()}
       >
         Verify
       </Text>
@@ -50,7 +60,6 @@ const ForgotPassword_EnterCode = ({ navigation }) => {
   );
 };
 
+export default ForgotPassword_EnterCode;
 
-export default ForgotPassword_EnterCode
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Text,
   StyleSheet,
@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import {
   containerFull,
-  goback,
+  goback1,
   logo1,
 } from "../../../styles/CommonCss/pagecss";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -21,24 +21,39 @@ import {
   formInput,
 } from "../../../styles/CommonCss/formcss";
 
-const Signup_Verification = ({ navigation }) => {
+const Signup_Verification = ({ navigation , route}) => {
+  const { useremail, userVerificationCode } = route.params;
+ 
+
+  const [verificationCode, setVerificationCode] = useState("");
+
+  const handleVerificationCode = () => {
+    if (verificationCode != userVerificationCode) {
+      alert("Invalid Verification Code");
+    } else if (verificationCode == userVerificationCode) {
+      alert("Verification Code Matched");
+      navigation.navigate("Signup_EnterUsername", { email: useremail });
+    } else {
+      alert("Please Try Again");
+    }
+  };
   return (
     <View style={containerFull}>
       <TouchableOpacity
         onPress={() => navigation.navigate("Login")}
-        style={goback}
+        style={goback1}
       >
-        <MaterialCommunityIcons name="chevron-left" size={24} color="gray" />
+        <MaterialCommunityIcons name="chevron-left" size={24} color="white" />
       </TouchableOpacity>
       <Image source={log} style={logo1} />
-      <Text style={formHead3}>
-        Enter Verification Code
-      </Text>
-      <TextInput placeholder="123456" style={formInput} />
-      <Text
-        style={formbtn}
-        onPress={() => navigation.navigate("Signup_EnterUsername")}
-      >
+      <Text style={formHead3}>Enter Verification Code</Text>
+      <TextInput
+        placeholder="123456"
+        style={formInput}
+        onChangeText={(text) => setVerificationCode(text)}
+      />
+
+      <Text style={formbtn} onPress={() => handleVerificationCode()}>
         Verify
       </Text>
     </View>

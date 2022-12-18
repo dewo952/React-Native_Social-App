@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   StyleSheet,
@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  ActivityIndicator,
 } from "react-native";
 import {
   containerFull,
@@ -23,6 +24,39 @@ import {
 } from "../../../styles/CommonCss/formcss";
 
 const ForgotPassword_EnterEmail = ({ navigation }) => {
+  const [email, setEmail] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+
+  const handleEmail = () => {
+    if (email === "") {
+      alert("Please enter email");
+    } else {
+      setLoading(true);
+      fetch("http://192.168.0.105:3000/verifyfp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.error === "Invalid Credentials") {
+            // alert('Invalid Credentials')
+            alert("Invalid Credentials");
+            setLoading(false);
+          } else if (data.message === "Verification Code Sent to your Email") {
+            setLoading(false);
+            alert(data.message);
+
+            navigation.navigate("ForgotPassword_EnterCode", {
+              useremail: data.email,
+              userVerificationCode: data.VerificationCode,
+            });
+          }
+        });
+    }
+  };
   return (
     <View style={containerFull}>
       <TouchableOpacity
@@ -31,26 +65,27 @@ const ForgotPassword_EnterEmail = ({ navigation }) => {
       >
         <MaterialCommunityIcons name="chevron-left" size={24} color="gray" />
       </TouchableOpacity>
-        <Text
-          style={forgotPassword}
-        >
-          Forgot Password
-        </Text>
+      <Text style={forgotPassword}>Forgot Password</Text>
       <Image source={log} style={logo1} />
       <Text style={formHead2}>Enter Email Address</Text>
-      <TextInput placeholder="example@gmail.com" style={formInput} />
+      <TextInput
+        placeholder="Enter Your Email"
+        style={formInput}
+        onChangeText={(text) => setEmail(text)}
+      />
       <Text
         style={formTextLinkRight}
         onPress={() => navigation.navigate("Login")}
       >
         Back to sign in
       </Text>
-      <Text
-        style={formbtn}
-        onPress={() => navigation.navigate("ForgotPassword_EnterCode")}
-      >
-        Send
-      </Text>
+      {loading ? (
+        <ActivityIndicator size="large" color="white" />
+      ) : (
+        <Text style={formbtn} onPress={() => handleEmail()}>
+          Next
+        </Text>
+      )}
     </View>
   );
 };
