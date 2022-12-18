@@ -17,6 +17,7 @@ import {
   formInput,
   formTextLinkRight,
 } from "../styles/CommonCss/formcss";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ChangePassword = ({ navigation }) => {
   const [oldPassword, setOldPassword] = useState("");
@@ -25,15 +26,39 @@ const ChangePassword = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
 
   const handleChangePassword = () => {
-    if (
-      !oldPassword === "" ||
-      newPassword === "" ||
-      confirmNewPassword === ""
-    ) {
-      alert("Please add all fields");
+    if (oldPassword === "" || newPassword === "" || confirmNewPassword === "") {
+      alert("Please fill all the fields");
     } else if (newPassword !== confirmNewPassword) {
-      alert("New password and Confirm password must be same");
+      alert("New password and confirm new password must be same");
     } else {
+      setLoading(true);
+      AsyncStorage.getItem("user")
+      .then((data) => {
+        fetch("http://192.168.0.105:3000/changepassword", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + JSON.parse(data).tokens,
+          },
+          body: JSON.stringify({
+            email: JSON.parse(data).user.email,
+            oldpassword: oldPassword,
+            newpassword: newPassword,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.message == "Password Changed Successfully") {
+              setLoading(false);
+              alert("Password Changed Successfully");
+              AsyncStorage.removeItem("user");
+              navigation.navigate("Login");
+            } else {
+              alert("Wrong Password");
+              setLoading(false);
+            }
+          });
+      });
     }
   };
 
@@ -50,13 +75,13 @@ const ChangePassword = ({ navigation }) => {
           color: "white",
           fontSize: 16,
           fontWeight: "bold",
-          bottom: 157,
+          bottom: 114,
         }}
       >
         Change Password
       </Text>
       <Image source={log} style={logo1} />
-      {/* <Text style={formHead3}>Enter Details </Text> */}
+      <Text style={formHead3}>Enter Details </Text>
       <TextInput
         placeholder="Old Password"
         style={formInput}

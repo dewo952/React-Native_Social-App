@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -20,8 +20,13 @@ import All_Chats from "./src/screens/ChatScreen/All_Chats";
 import SearchUser from "./src/screens/Mainpage/SearchUser";
 import Notification from "./src/screens/Mainpage/Notification";
 import UserProfile from "./src/screens/Profile/UserProfile";
+import ChangeDescription from "./src/Settings/ChangeDescription";
+import ChangeUsername from "./src/Settings/ChangeUsername";
+
+// Settings
 import Setting from "./src/Settings/Setting";
 import ChangePassword from "./src/Settings/ChangePassword";
+import EditProfile from "./src/Settings/EditProfile";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,8 +39,8 @@ export default function App() {
           animation: "slide_from_right",
         }}
       >
-         {/* Main App Page */}
-         <Stack.Screen name="Mainpage" component={Mainpage} />
+        {/* Main App Page */}
+        <Stack.Screen name="Mainpage" component={Mainpage} />
         {/* Login Navigation */}
         <Stack.Screen name="Login" component={Login_Screen} />
 
@@ -59,7 +64,7 @@ export default function App() {
         />
 
         {/* ForgotPassword Navigation */}
-        
+
         <Stack.Screen
           name="ForgotPassword_EnterEmail"
           component={ForgotPassword_EnterEmail}
@@ -77,7 +82,7 @@ export default function App() {
           component={ForgotPassword_AccountRecovered}
         />
 
-       
+        {/* Bottom NavBar */}
 
         <Stack.Screen
           name="Chats"
@@ -100,16 +105,18 @@ export default function App() {
           options={{ animation: "simple_push" }}
         />
 
+        {/* App Settings */}
 
         <Stack.Screen
           name="Setting"
           component={Setting}
           options={{ animation: "slide_from_right" }}
         />
+        <Stack.Screen name="Edit_Profile" component={EditProfile} />
 
-        <Stack.Screen name="Change_Password"
-        component={ChangePassword}
-        />
+        <Stack.Screen name="Change_Password" component={ChangePassword} />
+        <Stack.Screen name="Change_Description" component={ChangeDescription} />
+        <Stack.Screen name="Change_Username" component={ChangeUsername} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -4,12 +4,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { formHead } from "../styles/CommonCss/formcss";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const Setting = ({ navigation }) => {
-  const logout = () => {
-    AsyncStorage.removeItem("user").then(() => {
-      navigation.navigate("Login");
-    });
-  };
+const EditProfile = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons
@@ -18,39 +13,40 @@ const Setting = ({ navigation }) => {
         style={styles.gohomeicon}
         onPress={() => navigation.navigate("UserProfile")}
       />
-      <Text style={formHead}>Settings</Text>
+      <Text style={formHead}>Edit Profile</Text>
       <Text
         style={styles.txt1}
         onPress={() => navigation.navigate("Edit_Profile")}
       >
-        Edit Profile
+        Change Profile Picture
       </Text>
       <Text
         style={styles.txt1}
-        onPress={() => navigation.navigate("Change_Password")}
+        onPress={() => navigation.navigate("Change_Username")}
       >
-        Change Password
+        Change Username
       </Text>
-      <Text style={styles.txt1}>Customer Support</Text>
-      <Text style={styles.txt1} onPress={() => logout()}>
-        LogOut
+      <Text
+        style={styles.txt1}
+        onPress={() => navigation.navigate("Change_Description")}
+      >
+        Change Description
       </Text>
     </View>
   );
 };
-
-export default Setting;
+export default EditProfile;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#000000",
+    backgroundColor: "black",
     width: "100%",
     height: "100%",
   },
   gohomeicon: {
     position: "absolute",
     top: 15,
-    left: 4,
+    left: 20,
     zIndex: 10,
     color: "white",
     fontSize: 30,
